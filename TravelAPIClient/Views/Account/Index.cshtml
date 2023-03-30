@@ -1,0 +1,22 @@
+@{
+  ViewData["Title"] = "Login";
+}
+
+@model TravelAPIClient.Models.ApplicationUser
+
+<h4>login to TravelAPI Park</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.userName)
+  @Html.TextBoxFor(model => model.userName)
+  <br>
+  @Html.LabelFor(model => model.password)
+  @Html.TextBoxFor(model => model.password)
+  <br>
+  <br>
+  <input type="submit" value="sign in" class="btn btn-primary"/>
+}
+
+<br>
+<p>@Html.ActionLink("Back to all destinations", "Index")</p>

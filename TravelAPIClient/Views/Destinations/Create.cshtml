@@ -1,0 +1,22 @@
+@{
+  ViewData["Title"] = "Create Destination";
+}
+
+@model TravelAPIClient.Models.Destination
+
+<h4>Add a new destination to TravelAPI Park</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Country)
+  @Html.TextBoxFor(model => model.Country)
+  <br>
+  @Html.LabelFor(model => model.City)
+  @Html.TextBoxFor(model => model.City)
+  <br>
+  <br>
+  <input type="submit" value="Add new destination" class="btn btn-primary"/>
+}
+
+<br>
+<p>@Html.ActionLink("Back to all destinations", "Index")</p>

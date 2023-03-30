@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Destinations";
+}
+
+<h1>All TravelAPI Destinations</h1>
+
+<h3>Actions:</h3>
+
+<p>@Html.ActionLink("Add a new destination to the park", "Create")</p>
+
+<h3>Destinations:</h3>
+<ol>
+@foreach (Destination destination in Model)
+{
+  <li><strong>@destination.Country</strong> the @destination.City | <a href="/Destinations/Details/@(destination.DestinationId)">View Details</a></li>
+}
+</ol>
+

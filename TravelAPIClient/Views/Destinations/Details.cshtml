@@ -1,0 +1,19 @@
+@{
+  ViewData["Title"] = $"Details for {@Model.Country}";
+}
+@model TravelAPIClient.Models.Destination
+@using TravelAPIClient.Models
+
+<h1>All About @Model.Country</h1>
+
+<p>City: @Model.City</p>
+<ul>
+@foreach (Review review in Model.Reviews ?? Enumerable.Empty<Review>())
+{
+  <li>@review.Title<br>@review.Description</li>
+}
+</ul>
+
+<p>@Html.ActionLink("Edit details", "Edit", new { id = @Model.DestinationId })</p>
+<p>@Html.ActionLink("Delete destination", "Delete", new { id = @Model.DestinationId })</p>
+<p>@Html.ActionLink("Return to all destinations", "Index")</p>

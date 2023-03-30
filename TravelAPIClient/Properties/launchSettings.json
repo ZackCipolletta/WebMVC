@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "CretaceousClient": {
+    "TravelAPIClient": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -1,5 +1,5 @@
 #nullable enable
-namespace CretaceousClient.Models;
+namespace TravelAPIClient.Models;
 
 public class ErrorViewModel
 {
