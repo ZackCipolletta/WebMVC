@@ -46,5 +46,15 @@ namespace TravelAPIClient.Models
       request.AddHeader("Content-Type", "application/json");
       await client.DeleteAsync(request);
     }
+    
+      [HttpPost(Name = "Post")]
+        public static async void PostNewUser(string newApplicationUser)
+    {
+      RestClient client = new RestClient("http://localhost:5114/");
+      RestRequest request = new RestRequest($"api/destinations", Method.Post);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(newApplicationUser);
+      await client.PostAsync(request)
+    }
   }
 }
