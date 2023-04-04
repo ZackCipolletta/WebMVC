@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 
 namespace TravelAPIClient.Models
@@ -48,13 +48,13 @@ namespace TravelAPIClient.Models
     }
     
       [HttpPost(Name = "Post")]
-        public static async void PostNewUser(string newApplicationUser)
+        public static async void PostNewUser(string newApplicationUser, string jsonApplicationUser)
     {
       RestClient client = new RestClient("http://localhost:5114/");
       RestRequest request = new RestRequest($"api/destinations", Method.Post);
       request.AddHeader("Content-Type", "application/json");
       request.AddJsonBody(newApplicationUser);
-      await client.PostAsync(request)
+      await client.PostAsync(request);
     }
   }
 }

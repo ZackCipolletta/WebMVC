@@ -19,19 +19,21 @@ namespace TravelAPIClient.Models
     public int? ReviewCount { get; set; }
     public void UpdateReviewCount()
     {
-        ReviewCount = Reviews?.Count ?? 0;
+      ReviewCount = Reviews?.Count ?? 0;
     }
 
-    public static List<Destination> GetDestinations()
-    {
-      Task<string> apiCallTask = ApiHelper.GetAll();
-      string result = apiCallTask.Result;
+public static List<Destination> GetDestinations()
+{
+    Task<string> apiCallTask = ApiHelper.GetAll();
+    string result = apiCallTask.Result;
 
-      JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-      List<Destination> destinationList = JsonConvert.DeserializeObject<List<Destination>>(jsonResponse.ToString());
+    ApiResponse<Destination> apiResponse = JsonConvert.DeserializeObject<ApiResponse<Destination>>(result);
+    List<Destination> destinationList = apiResponse.Data;
 
-      return destinationList;
-    }
+    return destinationList;
+}
+
+
 
     public static Destination GetDetails(int id)
     {

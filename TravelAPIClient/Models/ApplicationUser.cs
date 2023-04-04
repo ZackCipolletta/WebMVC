@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TravelAPIClient.Models
 {
@@ -10,7 +11,7 @@ namespace TravelAPIClient.Models
 public static void Post(ApplicationUser applicationUser)
 {
     string jsonApplicationUser = JsonConvert.SerializeObject(applicationUser);
-    ApiHelper.Post("account/login", jsonApplicationUser);
+    ApiHelper.PostNewUser("account/login", jsonApplicationUser);
 }
   }
 }
